@@ -79,3 +79,7 @@ Passage text and version metadata come directly from the [YouVersion Bible API](
 ## Current live state
 
 Tests use mocked provider and GitHub boundaries. Live preparation requires Gloo credentials. Live posting requires valid `gh` authentication. Live YouVersion retrieval remains disabled by default pending written AI-use approval.
+
+## Kaggle submission materials
+
+The upload-ready Writeup, public companion notebook, cover image, video storyboard, and eligibility checklist are in [`submission/`](submission/README.md). The notebook is deliberately self-contained and demonstrates Selah's deterministic safety boundary without credentials, network access, licensed Scripture text, or live posting.
