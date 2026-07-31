@@ -1,0 +1,7 @@
+interface:
+  display_name: "Selah PR Review"
+  short_description: "Grace-oriented PR review with private reflection"
+  default_prompt: "Use $selah-pr-review to review this GitHub pull request with technically grounded, gracious feedback and a private Scripture reflection."
+
+policy:
+  allow_implicit_invocation: true

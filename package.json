@@ -1,0 +1,49 @@
+{
+  "name": "@selah/pr-review",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent-first GitHub pull request review with constructive public feedback and private formation.",
+  "type": "module",
+  "bin": {
+    "selah": "dist/cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "volta": {
+    "node": "22.23.1",
+    "npm": "10.9.8"
+  },
+  "scripts": {
+    "build": "esbuild src/cli.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/cli.js --banner:js=\"#!/usr/bin/env node\"",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "lint": "eslint .",
+    "selah": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "codex",
+    "github",
+    "pull-request",
+    "review"
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "commander": "^15.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.1.2",
+    "@vitest/coverage-v8": "^4.1.10",
+    "esbuild": "^0.28.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0",
+    "tsx": "^4.23.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.1.10"
+  }
+}
