@@ -4,7 +4,7 @@ This directory contains the upload-ready assets that can be prepared without acc
 
 ## Files
 
-- [`kaggle-writeup.md`](kaggle-writeup.md) — 428 words including headings and links; the limit is 500.
+- [`kaggle-writeup.md`](kaggle-writeup.md) — 429 words including headings and links; the limit is 500.
 - [`selah-public-notebook.ipynb`](selah-public-notebook.ipynb) — self-contained public companion notebook; no credentials, network, Node.js, or paid API required.
 - [`video-script.md`](video-script.md) — a 2:58 script and storyboard.
 - [`media/selah-cover.png`](media/selah-cover.png) — 1672×941, 16:9 cover image.

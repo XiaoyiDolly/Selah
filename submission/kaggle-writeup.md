@@ -1,6 +1,6 @@
 # Selah: Pause Before You Post
 
-## An agent-first pull-request reviewer that pairs rigorous public feedback with private, attributed Scripture reflection
+## An agent-first pull-request reviewer that pairs evidence-based, gracious public feedback with private, attributed Scripture reflection
 
 ### Problem
 
