@@ -14,8 +14,8 @@ Mediate an agent's technically grounded PR findings into constructive public fee
 3. Identify at most five consequential, technically supported findings and up to three evidence-backed strengths. Read [review-input.md](references/review-input.md), then create an owner-only temporary JSON input containing only relevant diff hunks.
 4. Run `npm run --silent selah -- prepare --pr <url> --input <json>`, then remove the temporary input. Do not call Gloo or YouVersion directly.
 5. Present the result in the private agent conversation under exactly two headings:
-   - **Ready for GitHub**: show only `publicReview.body`.
-   - **For you only**: show `privateFormation` and the attributed `scripture` result. Never put this section in a GitHub payload, log, artifact, or draft file.
+   - **Agent evidence + Gloo wording — Ready for GitHub**: show only `publicReview.body`.
+   - **Gloo reflection + Scripture — For you only**: label and show `privateFormation` as **Gloo reflection**. When `scripture.status` is `available`, label and show it as **YouVersion Scripture**; otherwise label and show it as **Selah Scripture status** so disabled or unavailable states are not attributed to YouVersion. Never put this section in a GitHub payload, log, artifact, or draft file.
 6. Ask the user to approve posting the displayed public review. Do not infer approval from the original review request.
 7. After an unambiguous approval, run only `npm run --silent selah -- post <draft-id>`. If the user declines, run `npm run --silent selah -- discard <draft-id>`. If the public wording must change, prepare a new draft; never add private fields or arbitrary body arguments to `post`.
 

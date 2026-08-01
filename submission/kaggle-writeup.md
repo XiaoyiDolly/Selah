@@ -14,7 +14,7 @@ Gloo must return one schema-validated tool call. It preserves each finding's tec
 
 ### Technical Architecture
 
-The workflow is: inspect PR → validate structured evidence → redact secrets → generate and validate wording → retrieve attributed Scripture → display two sections. **Ready for GitHub** contains only the proposed public review. **For you only** contains the tone reflection and Scripture. Posting requires fresh confirmation and the command `selah post <draft-id>`; the posting path cannot accept arbitrary private fields.
+The workflow is: inspect PR → validate structured evidence → redact secrets → generate and validate wording → retrieve attributed Scripture → display two source-labeled sections. **Agent evidence + Gloo wording — Ready for GitHub** contains only the proposed public review. **Gloo reflection + Scripture — For you only** labels private formation as Gloo reflection and available passage text as YouVersion Scripture. Posting requires fresh confirmation and the command `selah post <draft-id>`; the posting path cannot accept arbitrary private fields.
 
 ### Safety and Privacy
 

@@ -28,9 +28,9 @@ Target runtime: **2:58 maximum**. Record at a measured pace and trim the final e
 
 ## 1:35–2:00 — Public/private split
 
-**On screen:** Side-by-side headings, **Ready for GitHub** and **For you only**. Use fixture data; do not reveal credentials or licensed passage text.
+**On screen:** Side-by-side headings, **Agent evidence + Gloo wording — Ready for GitHub** and **Gloo reflection + Scripture — For you only**, with provider labels beneath them. Use fixture data; do not reveal credentials or licensed passage text.
 
-**Narration:** “Selah maps the theme to a fixed passage and, only when written approval is configured, retrieves exact text and attribution directly from YouVersion. The agent displays public feedback and private formation separately. The public draft contains no Scripture or religious language.”
+**Narration:** “The labels make each source explicit: the agent supplies technical evidence, Gloo shapes the public wording and private reflection, and YouVersion supplies attributed Scripture. Selah keeps the public review and private formation separate, and the public draft contains no Scripture or religious language.”
 
 ## 2:00–2:25 — Approval and posting
 
