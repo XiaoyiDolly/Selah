@@ -17,7 +17,18 @@ Ordinary code reviews do not activate Selah. Native `@codex review`, automatic G
 - Gloo OAuth2 client credentials
 - A YouVersion application key and written AI-use approval before enabling live Scripture retrieval
 
-Install and verify:
+### Install from npm
+
+`@selah/pr-review` is published as a **restricted** (private) scoped package, so you need npm auth with access to the `@selah` scope. Then install the `selah` binary globally:
+
+```sh
+npm install -g @selah/pr-review
+selah doctor
+```
+
+### Install from source
+
+For development, or without npm scope access, work from a checkout:
 
 ```sh
 npm install
