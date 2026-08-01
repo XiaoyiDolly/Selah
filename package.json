@@ -1,6 +1,6 @@
 {
   "name": "@selah-wisdom/pr-review",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Agent-first GitHub pull request review with constructive public feedback and private formation.",
   "type": "module",
   "publishConfig": {

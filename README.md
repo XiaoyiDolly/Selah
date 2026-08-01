@@ -58,14 +58,19 @@ Only the exact value `true` enables YouVersion calls. Keep it `false` until writ
 
 ```sh
 selah doctor
+
+# Provide findings via file...
 selah prepare --pr https://github.com/org/repo/pull/123 --input /secure/path/review.json
+# ...or pipe them on stdin (no temp file needed):
+your-agent-review "$PR" | selah prepare --pr https://github.com/org/repo/pull/123
+
 selah post 123e4567-e89b-42d3-a456-426614174000
 selah discard 123e4567-e89b-42d3-a456-426614174000
 ```
 
 During development, replace `selah` with `npm run selah --`.
 
-`prepare` requires the structured input documented in [.agents/skills/selah-pr-review/references/review-input.md](.agents/skills/selah-pr-review/references/review-input.md). Gloo is called through OAuth2 and [Completions V2](https://docs.gloo.com/api-guides/completions-v2), with a required function call whose arguments are independently validated.
+`prepare` reads the structured input from `--input <path>`, or from stdin when `--input` is omitted, so an agent can stream findings directly without writing a temporary file. The input format is documented in [.agents/skills/selah-pr-review/references/review-input.md](.agents/skills/selah-pr-review/references/review-input.md). Gloo is called through OAuth2 and [Completions V2](https://docs.gloo.com/api-guides/completions-v2), with a required function call whose arguments are independently validated.
 
 The five private reflection themes map to fixed USFM passages:
 
