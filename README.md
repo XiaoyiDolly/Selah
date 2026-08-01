@@ -19,7 +19,7 @@ Ordinary code reviews do not activate Selah. Native `@codex review`, automatic G
 
 ### Install from npm
 
-`@selah/pr-review` is published as a **restricted** (private) scoped package, so you need npm auth with access to the `@selah` scope. Then install the `selah` binary globally:
+Install the `selah` binary globally:
 
 ```sh
 npm install -g @selah/pr-review

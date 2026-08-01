@@ -4,11 +4,12 @@
   "description": "Agent-first GitHub pull request review with constructive public feedback and private formation.",
   "type": "module",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "files": [
     "dist",
     "README.md",
+    "LICENSE",
     ".agents"
   ],
   "bin": {
@@ -37,7 +38,8 @@
     "pull-request",
     "review"
   ],
-  "license": "UNLICENSED",
+  "author": "Xiaoyi Duan",
+  "license": "MIT",
   "dependencies": {
     "commander": "^15.0.0",
     "zod": "^4.4.3"
