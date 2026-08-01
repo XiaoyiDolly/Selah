@@ -19,12 +19,14 @@ Ordinary code reviews do not activate Selah. Native `@codex review`, automatic G
 
 ### Install from npm
 
-Install the `selah` binary globally:
+The package is published publicly on npm. Install the `selah` binary globally:
 
 ```sh
 npm install -g @selah-wisdom/pr-review
 selah doctor
 ```
+
+> Using [Volta](https://volta.sh)? Run `volta install @selah-wisdom/pr-review` instead — Volta does not put `npm install -g` binaries on your `PATH`, but `volta install` creates a proper `selah` shim.
 
 ### Install from source
 
