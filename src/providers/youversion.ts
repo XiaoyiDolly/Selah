@@ -20,8 +20,8 @@ const BibleResponseSchema = z
     title: z.string().min(1),
     abbreviation: z.string().min(1),
     copyright: z.string().min(1),
-    info: z.string().min(1).optional(),
-    publisher_url: z.union([z.literal(""), z.string().url()]).optional(),
+    info: z.string().min(1).nullable().optional(),
+    publisher_url: z.union([z.literal(""), z.string().url()]).nullable().optional(),
     youversion_deep_link: z.string().url().optional(),
   })
   .passthrough();
