@@ -9,7 +9,7 @@ import { runDoctor } from "./doctor.js";
 import { DraftStore } from "./draft-store.js";
 import { SelahError } from "./errors.js";
 import { GitHubClient } from "./github.js";
-import { readPreparedReviewInput } from "./input.js";
+import { readPreparedReviewInput, readPreparedReviewInputFromStdin } from "./input.js";
 import { GlooClient } from "./providers/gloo.js";
 import { YouVersionClient } from "./providers/youversion.js";
 import { safeErrorMessage } from "./redaction.js";
@@ -17,7 +17,7 @@ import { ReviewService } from "./review-service.js";
 
 interface PrepareOptions {
   pr: string;
-  input: string;
+  input?: string;
 }
 
 export function createProgram(): Command {
@@ -57,12 +57,14 @@ export function createProgram(): Command {
     .command("prepare")
     .description("Validate findings and prepare a short-lived public GitHub review draft.")
     .requiredOption("--pr <url>", "Canonical GitHub pull request URL")
-    .requiredOption("--input <json>", "Path to the structured review input JSON file")
+    .option("--input <json>", "Path to the structured review input JSON file (defaults to stdin)")
     .allowExcessArguments(false)
     .action(async (options: PrepareOptions) => {
       const config = readConfig();
       const credentials = requireGlooCredentials(config);
-      const input = await readPreparedReviewInput(options.input);
+      const input = options.input
+        ? await readPreparedReviewInput(options.input)
+        : await readPreparedReviewInputFromStdin();
       const gloo = new GlooClient(credentials);
       const scriptureProvider =
         config.youVersionAiApproved && config.youVersionAppKey
