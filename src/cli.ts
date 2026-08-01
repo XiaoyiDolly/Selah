@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
 import { resolve } from "node:path";
+import { realpathSync } from "node:fs";
 
 import { Command } from "commander";
 
@@ -121,7 +122,15 @@ export async function main(argv: readonly string[] = process.argv): Promise<void
   }
 }
 
-const entryPath = process.argv[1] ? resolve(process.argv[1]) : undefined;
-if (entryPath && fileURLToPath(import.meta.url) === entryPath) {
+const canonical = (path: string): string => {
+  try {
+    return realpathSync(path);
+  } catch {
+    return resolve(path);
+  }
+};
+
+const entryPath = process.argv[1] ? canonical(process.argv[1]) : undefined;
+if (entryPath && canonical(fileURLToPath(import.meta.url)) === entryPath) {
   await main();
 }
