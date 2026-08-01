@@ -22,7 +22,7 @@ Ordinary code reviews do not activate Selah. Native `@codex review`, automatic G
 Install the `selah` binary globally:
 
 ```sh
-npm install -g @selah/pr-review
+npm install -g @selah-wisdom/pr-review
 selah doctor
 ```
 
@@ -85,7 +85,7 @@ Passage text and version metadata come directly from the [YouVersion Bible API](
 - `post` accepts only a UUID draft ID. It atomically claims the draft and sends the body over stdin to `gh pr review --comment --body-file -`, without a shell.
 - A successful post deletes the draft. A failed post restores the original draft without extending its expiry. `discard` deletes without posting.
 - If a started `gh` process times out or loses its result, Selah keeps a non-retryable claim until expiry and requires inspecting the PR manually, preventing an uncertain duplicate post.
-- The Codex skill must display **Ready for GitHub** and **For you only** separately and obtain fresh, explicit approval before `post`.
+- The Codex skill must display **Agent evidence + Gloo wording — Ready for GitHub** and **Gloo reflection + Scripture — For you only** separately, label available text as **YouVersion Scripture** (or a disabled/unavailable result as **Selah Scripture status**), and obtain fresh, explicit approval before `post`.
 
 ## Current live state
 
