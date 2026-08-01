@@ -47,10 +47,12 @@ describe("Gloo required tool output", () => {
 });
 
 describe("Gloo OAuth and completion behavior", () => {
-  it("refreshes OAuth once after a completion 401 and never logs credentials into the request JSON", async () => {
+  it("refreshes OAuth after bounded completion 401 retries and never logs credentials into the request JSON", async () => {
     const calls: Array<{ url: string; init?: RequestInit }> = [];
     const responses = [
       jsonResponse({ access_token: "first-token", token_type: "Bearer", expires_in: 3600 }),
+      new Response("", { status: 401 }),
+      new Response("", { status: 401 }),
       new Response("", { status: 401 }),
       jsonResponse({ access_token: "second-token", token_type: "Bearer", expires_in: 3600 }),
       jsonResponse(completionEnvelope()),
@@ -69,14 +71,14 @@ describe("Gloo OAuth and completion behavior", () => {
     });
 
     await expect(client.review(makeInput())).resolves.toEqual(makeGlooReview());
-    expect(calls).toHaveLength(4);
+    expect(calls).toHaveLength(6);
     expect(calls.filter((call) => call.url.includes("oauth2/token"))).toHaveLength(2);
     const completionBodies = calls
       .filter((call) => call.url.includes("chat/completions"))
       .map((call) => String(call.init?.body));
-    expect(completionBodies).toHaveLength(2);
+    expect(completionBodies).toHaveLength(4);
     expect(completionBodies.join("\n")).not.toContain("client-secret");
-    expect(calls[3]?.init?.headers).toMatchObject({ Authorization: "Bearer second-token" });
+    expect(calls[5]?.init?.headers).toMatchObject({ Authorization: "Bearer second-token" });
   });
 
   it("maps OAuth rejection to a safe authentication error", async () => {
