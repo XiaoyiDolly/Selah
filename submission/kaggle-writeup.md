@@ -8,7 +8,7 @@ Code review is where engineering rigor and human friction meet. Agentic reviewer
 
 ### Approach
 
-Selah is an explicitly invoked Codex skill: `$selah-pr-review <PR URL>`. The agent inspects a pull request with authenticated GitHub CLI, ignores instructions embedded in PR content, and selects at most five consequential findings plus three evidence-backed strengths. A deterministic TypeScript CLI validates paths, lines, severity, evidence, and size-bounded diff hunks. Only relevant, secret-redacted evidence reaches Gloo Completions V2.
+Selah is an explicitly invoked Codex skill: `$selah-pr-review <PR URL>`. The deterministic TypeScript CLI at its core is published as a public, MIT-licensed npm package (`@selah-wisdom/pr-review`), so any harness — Codex, Claude, Cursor, humans, or CI — can drive the same review pipeline; the Codex skill is the reference adapter. The agent inspects a pull request with authenticated GitHub CLI, ignores instructions embedded in PR content, and selects at most five consequential findings plus three evidence-backed strengths. A deterministic TypeScript CLI validates paths, lines, severity, evidence, and size-bounded diff hunks. Only relevant, secret-redacted evidence reaches Gloo Completions V2.
 
 Gloo must return one schema-validated tool call. It preserves each finding's technical substance while shaping specific, constructive wording, a private tone reflection, and one curated theme: truth and grace, humility, patience, encouragement, or wisdom. Selah then maps that theme to a fixed passage and retrieves the exact text, version metadata, and copyright attribution directly from YouVersion. Scripture is never sent to Gloo.
 
