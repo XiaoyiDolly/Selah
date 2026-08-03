@@ -16,11 +16,13 @@ describe("bounded retries", () => {
     expect(sleep).toHaveBeenCalledTimes(1);
   });
 
-  it("does not retry invalid authentication", async () => {
+  it("retries authentication failures up to the attempt limit", async () => {
     const fetcher = vi.fn().mockResolvedValue(new Response("no", { status: 401 }));
-    const response = await fetchWithRetry(fetcher, "https://provider.example", {});
+    const sleep = vi.fn().mockResolvedValue(undefined);
+    const response = await fetchWithRetry(fetcher, "https://provider.example", {}, { sleep });
     expect(response.status).toBe(401);
-    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(fetcher).toHaveBeenCalledTimes(3);
+    expect(sleep).toHaveBeenCalledTimes(2);
   });
 });
 

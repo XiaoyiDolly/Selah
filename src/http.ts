@@ -11,7 +11,7 @@ export interface RetryOptions {
   sleep?: Sleep;
 }
 
-const RETRYABLE_STATUS = new Set([408, 429, 500, 502, 503, 504]);
+const RETRYABLE_STATUS = new Set([401, 403, 408, 429, 500, 502, 503, 504]);
 
 const defaultSleep: Sleep = async (milliseconds) =>
   new Promise((resolve) => {
